@@ -2,11 +2,11 @@
 
 ## Deployment type
 
-__docker__
+docker
 
 ## Image 
 
-Based on official image on __Docker Hub__:  https://hub.docker.com/_/rabbitmq
+Based on official image on Docker Hub: https://hub.docker.com/_/rabbitmq
 
 ## Licence
 
@@ -32,7 +32,7 @@ docker run -d --rm \
         rabbitmq:3.8.14
 ```
 
-B. With *management plugin* opened on port 15672 (with user/pass: *user* / *guest* ):
+B. With *management plugin* opened on port 15672 (with user/pass: *user* / *p4ss* ):
 
 ```sh
 docker run -d \
