@@ -1,4 +1,10 @@
-# Image information
+# General
+
+## Deployment type
+
+__docker__
+
+## Image 
 
 Based on official image on __Docker Hub__:  https://hub.docker.com/_/rabbitmq
 
