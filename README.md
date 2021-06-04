@@ -4,7 +4,7 @@
 
 docker
 
-## Image 
+## Image
 
 Based on official image on Docker Hub: https://hub.docker.com/_/rabbitmq
 
@@ -29,6 +29,7 @@ docker run -d --rm \
         --name rabbit \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
+        -p 5672:5672 \
         rabbitmq:3.8.14
 ```
 
@@ -39,6 +40,7 @@ docker run -d \
         --name rabbit \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
+        -p 5672:5672 \
         -p 15672:15672 \
         rabbitmq:3.8.14-management
 ```
@@ -47,7 +49,7 @@ docker run -d \
 
 |Name|Value|Description|
 |-|-|-|
-|Ports|`-p 5672:5672`<br/>`-p 15672:15672`| Normal ports<br/> management GUI ports|
+|Ports|`-p 5672:5672`<br/>`-p 15672:15672`| RabbitMQ port<br/> management GUI port|
 |Volumes|`-v $HOME/rabbitdata/:/var/lib/rabbitmq/`| |
 
 For additional configuration edit `/etc/rabbitmq/rabbitmq.conf`. See [1] for more details.
