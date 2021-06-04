@@ -30,6 +30,7 @@ docker run -d --rm \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 5672:5672 \
+        -v $HOME/rabbitmq/data:/var/lib/rabbitmq \
         rabbitmq:3.8.14
 ```
 
@@ -42,6 +43,7 @@ docker run -d \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 5672:5672 \
         -p 15672:15672 \
+        -v $HOME/rabbitmq/data:/var/lib/rabbitmq \
         rabbitmq:3.8.14-management
 ```
 
@@ -50,7 +52,7 @@ docker run -d \
 |Name|Value|Description|
 |-|-|-|
 |Ports|`-p 5672:5672`<br/>`-p 15672:15672`| RabbitMQ port<br/> management GUI port|
-|Volumes|`-v $HOME/rabbitdata/:/var/lib/rabbitmq/`| |
+|Volumes|`-v $HOME/rabbitmq/data:/var/lib/rabbitmq`| Persist RabbitMQ data |
 
 For additional configuration edit `/etc/rabbitmq/rabbitmq.conf`. See [1] for more details.
 
