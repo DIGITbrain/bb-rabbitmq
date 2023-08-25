@@ -14,7 +14,7 @@ Mozilla Public License v2.0
 
 ## Version
 
-3.8.14
+3.x
 
 ## Description
 
@@ -31,7 +31,7 @@ docker run -d --rm \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 5672:5672 \
         -v $HOME/rabbitmq/data:/var/lib/rabbitmq \
-        rabbitmq:3.8.14
+        rabbitmq:3
 ```
 
 B. With *management plugin* opened on port 15672 (with user/pass: *user* / *p4ss* ):
@@ -44,7 +44,7 @@ docker run -d \
         -p 5672:5672 \
         -p 15672:15672 \
         -v $HOME/rabbitmq/data:/var/lib/rabbitmq \
-        rabbitmq:3.8.14-management
+        rabbitmq:3-management
 ```
 
 ## Parameters
@@ -127,7 +127,7 @@ docker run -d --rm \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 5671:5671 \
-        rabbitmq:3.8.14
+        rabbitmq:3
 ```
 
 ## TLS with management plugin
@@ -148,7 +148,7 @@ docker run -d --rm \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 15671:15671 \
-        rabbitmq:3.8.14-management
+        rabbitmq:3-management
 ```
 
 ### Testing
@@ -175,7 +175,7 @@ docker run -d --rm --name rabbit \
         -e RABBITMQ_DEFAULT_USER=user \
         -e RABBITMQ_DEFAULT_PASS=p4ss \
         -p 15671:15671 \
-        rabbitmq:3.8.14-management
+        rabbitmq:3-management
 ```
 
 # References

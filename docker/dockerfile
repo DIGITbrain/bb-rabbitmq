@@ -1,7 +1,7 @@
-# docker build -t rabbit:3.9.13 .
-# docker run -d --rm --name rabbit -e RABBITMQ_DEFAULT_USER=db -e RABBITMQ_DEFAULT_PASS=db -p 10000:5671 -p 10001:15671 rabbit:3.9.13
+# docker build -t rabbit:3 .
+# docker run -d --rm --name rabbit -e RABBITMQ_DEFAULT_USER=db -e RABBITMQ_DEFAULT_PASS=db -p 10000:5671 -p 10001:15671 rabbit:3
 
-FROM rabbitmq:3.9.13-management
+FROM rabbitmq:3-management
 
 COPY $PWD/certificates/ca.pem /etc/ssl/certs/rabbit/
 COPY $PWD/certificates/server-cert.pem /etc/ssl/certs/rabbit/

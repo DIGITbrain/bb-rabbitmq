@@ -4,11 +4,11 @@ RabbitMQ
 
 About
 =====
-**RabbitMQ** [1]_ is open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP). 
+**RabbitMQ** [1]_ is open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP).
 
 Version
 -------
-RabbitMQ version **3.9.13-management** deployed based on official Docker Hub image: [2]_.
+RabbitMQ version **3.x-management** deployed based on official Docker Hub image: [2]_.
 
 License
 -------
@@ -18,9 +18,9 @@ Pre-requisites
 ==============
 * *docker* installed
 * access to DIGITbrain private docker repo (username, password) to pull the image:
-  
+
   - ``docker login dbs-container-repo.emgora.eu``
-  - ``docker pull dbs-container-repo.emgora.eu/rabbit:3.9.13``
+  - ``docker pull dbs-container-repo.emgora.eu/rabbitmq:3``
 
 Usage
 =====
@@ -31,7 +31,7 @@ Usage
     -e RABBITMQ_DEFAULT_PASS=p4ss \
     -p 5671:5671 \
     -p 15671:15671 \
-    rabbit:3.9
+    rabbitmq:3
 
 where RABBITMQ_DEFAULT_USER and RABBITMQ_DEFAULT_PASS parameters create a new database user with the given username and password,
 and standard RabbitMQ (TLS) port 5671 is opened on the host with (HTTPS) Management GUI avaialable on port 15671 .
@@ -54,7 +54,7 @@ Configuration
 
 Parameters
 ----------
-.. list-table:: 
+.. list-table::
    :header-rows: 1
 
    * - Name
@@ -78,7 +78,7 @@ Parameters
 
 Ports
 -----
-.. list-table:: 
+.. list-table::
   :header-rows: 1
 
   * - Container port
@@ -86,13 +86,13 @@ Ports
     - Comment
   * - *RabbitMQ SSL*
     - ``-p 5671:5671``
-    - RabbitMQ SSL port 
+    - RabbitMQ SSL port
   * - *RabbitMQ*
     - ``-p 5672:5672``
-    - RabbitMQ port (**disabled** by default, ``listeners.tcp = none`` in ``rabbitmq.conf``) 
+    - RabbitMQ port (**disabled** by default, ``listeners.tcp = none`` in ``rabbitmq.conf``)
   * - *RabbitMQ SSL*
     - ``-p 5671:5671``
-    - RabbitMQ SSL port 
+    - RabbitMQ SSL port
   * - *HTTPS Management GUI*
     - ``-p 15671:15671``
     - Management GUI port
@@ -102,35 +102,35 @@ Ports
 
 Volumes
 -------
-.. list-table:: 
+.. list-table::
   :header-rows: 1
 
   * - Name
     - Volume mount example
     - Comment
-  * - *RabbitMQ data*    
+  * - *RabbitMQ data*
     - ``-v $PWD/data:/var/lib/rabbitmq``
     - RabbitMQ data will be persisted in host directory: ``./data``
-  * - *RabbitMQ configuration file*    
+  * - *RabbitMQ configuration file*
     - ``-v $PWD/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf``
     - Custom configuration file for RabbitMQ, see [5]_
 
 
-  * - *CA certificate*    
-    - ``-v $PWD/certificates/ca.crt:/etc/ssl/certs/rabbit/ca.crt``  
+  * - *CA certificate*
+    - ``-v $PWD/certificates/ca.crt:/etc/ssl/certs/rabbit/ca.crt``
     - Certificate Authority certificate
-  * - *Server certificate*    
-    - ``-v $PWD/certificates/server-cert.pem:/etc/ssl/certs/rabbit/server.crt``  
+  * - *Server certificate*
+    - ``-v $PWD/certificates/server-cert.pem:/etc/ssl/certs/rabbit/server.crt``
     - Server certificate in PEM format
-  * - *Server key*    
-    - ``-v $PWD/certificates/server-key.pem:/etc/ssl/certs/rabbit/server.key``  
+  * - *Server key*
+    - ``-v $PWD/certificates/server-key.pem:/etc/ssl/certs/rabbit/server.key``
     - Server key file in PEM format
 
 References
 ==========
 .. [1] https://www.rabbitmq.com/
 
-.. [2] https://hub.docker.com/_/rabbitmq 
+.. [2] https://hub.docker.com/_/rabbitmq
 
 .. [3] https://www.rabbitmq.com/mpl.html
 
